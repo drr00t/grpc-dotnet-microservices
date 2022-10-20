@@ -1,0 +1,9 @@
+syntax = "proto3";
+import "messages.proto";
+
+option csharp_namespace = "product.api";
+
+
+service ProductService {
+  rpc getProduct(GetProductRequest) returns (GetProductResponse);
+}
