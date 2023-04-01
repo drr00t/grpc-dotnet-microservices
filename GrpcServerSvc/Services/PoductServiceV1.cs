@@ -39,7 +39,8 @@ public class ProductServiceV1: ProductService.ProductServiceBase
     public override Task<GetProductResponse> getProduct(GetProductRequest request, ServerCallContext context)
     {
         _logger.LogInformation($"Get Product number {request.ProductId}");
-    
+        var headers = context.RequestHeaders.Count;
+        
         return Task.FromResult(new GetProductResponse
         {
             Description = $"description {request.ProductId}", 

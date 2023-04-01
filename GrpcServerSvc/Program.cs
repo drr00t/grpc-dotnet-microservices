@@ -23,12 +23,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddGrpc();
-// builder.WebHost.ConfigureKestrel(options =>
-// {
-//     // options.ListenLocalhost(8001);
-//     // options.ListenLocalhost(8001, listener => listener.UseHttps());
-// });
+builder.Services.AddGrpc(options =>
+{
+    // options.Interceptors.Add<LoggingInterceptor>();
+});
+// builder.Services.AddSingleton<LoggingInterceptor>();
 
 var app = builder.Build();
 app.MapGrpcService<ProductServiceV1>();

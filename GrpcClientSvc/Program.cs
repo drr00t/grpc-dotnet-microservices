@@ -20,7 +20,7 @@
 using Grpc.Net.Client;
 using product.api;
 
-using var channel = GrpcChannel.ForAddress("https://localhost:8001");
+using var channel = GrpcChannel.ForAddress("http://localhost:8001");
 var client = new ProductService.ProductServiceClient(channel);
 
 var reply = await client.getProductAsync(new GetProductRequest
